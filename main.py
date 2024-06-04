@@ -42,7 +42,6 @@ if __name__ == '__main__':
     # ITERATORS, GENERATORS AND DECORATORS
     """A decorator is a design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. """
 
-
     def decor(func):
         def inner():
             print("Executing a function")
@@ -60,6 +59,11 @@ if __name__ == '__main__':
 
     rand()
 
+    """Napisz dekorator…
+        1. wypisujący czas wejścia i wyjścia z funkcji,
+        2. z argumentami, który wypisze czas wejścia i wyjścia z funkcji, tylko jeśli moment wywołania funkcji jest wcześniejszy niż wskazana godzina,
+        3. podnoszący do kwadratu wynik funkcji, którą dekoruje."""
+
 
     # GENERATOR
     def _gen():
@@ -76,6 +80,8 @@ if __name__ == '__main__':
 
 
     # OBJECT ORIENTED PROGRAMMING
+
+    # READ THIS!!! https://stackoverflow.com/questions/3951840/how-to-invoke-a-function-on-an-object-dynamically-by-name
     class Dog:
         # ENCAPSULATION
         _species = "Canis familiaris"
