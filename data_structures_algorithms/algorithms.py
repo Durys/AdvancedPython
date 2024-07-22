@@ -27,6 +27,7 @@ Original List:
 Sorted List:
 [14, 25, 36, 36, 45, 47, 48, 68, 69, 78]"""
 # Heaps, Stacks, Queues
+# https://ioflood.com/blog/using-deque-in-python-python-queues-and-stacks-made-easy/#:~:text=Deque%20is%20a%20Python%20function,safer%20choice%20for%20multithreaded%20programs.
 """4. Write a Python program to create a queue and display all the members and size of the queue. Go to the editor
 Expected Output:
 Members of the queue:
