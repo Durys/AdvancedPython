@@ -20,47 +20,20 @@ graph = {'A': set(['B', 'C']),
 unsorted_list = [5, 3, 2, 4, 1]
 
 # Arrays and Linked Lists
-"""Write a Python program to insert items into a list in sorted order. Go to the editor
-Expected Output:
-Original List:
-[25, 45, 36, 47, 69, 48, 68, 78, 14, 36]
-Sorted List:
-[14, 25, 36, 36, 45, 47, 48, 68, 69, 78]"""
+
 # Heaps, Stacks, Queues
 # https://ioflood.com/blog/using-deque-in-python-python-queues-and-stacks-made-easy/#:~:text=Deque%20is%20a%20Python%20function,safer%20choice%20for%20multithreaded%20programs.
-"""4. Write a Python program to create a queue and display all the members and size of the queue. Go to the editor
-Expected Output:
-Members of the queue:
-0 1 2 3
-Size of the queue:
-4
-
-5. Write a Python program to find whether a queue is empty or not. Go to the editor
-Expected Output:
-True
-False
-
-6. Write a Python program to create a FIFO queue. Go to the editor
-Expected Output:
-0 1 2 3
-
-7. Write a Python program to create a LIFO queue. Go to the editor
-Expected Output:
-3 2 1 0"""
 
 # Hash Tables
 ## IMPORTANT
 
 # Binary Search Trees
-"""1. Write a Python program to locate the left insertion point for a specified value in sorted order. Go to the editor
-Expected Output:
-2. Write a Python program to locate the right insertion point for a specified value in sorted order. Go to the editor
-Expected Output:"""
+
 # N - ary Trees
 
 # Trie - Trees
 
-#IMPORTANT - KNOW WHAT IS INORDER, POSTORDER AND PREORDER
+# IMPORTANT - KNOW WHAT IS INORDER, POSTORDER AND PREORDER
 
 # Graphs
 # DFS and BFS
@@ -145,17 +118,43 @@ def depth_first_search(graph, start, goal):
 It starts at the root node and explores all the nodes at the current level before moving on to the next level."""
 
 
-def breadth_first_search(graph, start):
-    visited, queue = set(), deque([start])
+def breadth_first_search(graph, start_node, end_node):
+    visited = set()
+    queue = deque()
+    queue.append(start_node)
     while queue:
-        vertex = queue.popleft()
-        if vertex not in visited:
-            visited.add(vertex)
-            queue.extend(graph[vertex] - visited)
-    return visited
+        node = queue.popleft()  # Remove from the front of the queue
+        for adjacent in graph[node]:
+            if adjacent not in visited:
+                if adjacent == end_node:
+                    return True
+                else:
+                    queue.append(adjacent)
+        visited.add(node)
+    return False
 
 
-# print(breadth_first_search(graph, 'A'))  # Output: {'A', 'B', 'C', 'D', 'E', 'F'}
+# print(breadth_first_search(graph, 'A', 'F'))  # Output: {'A', 'B', 'C', 'D', 'E', 'F'}
+
+
+def bidirectional_search(graph, start_node, end_node):
+    to_visit = deque([start_node, end_node])
+    visited_from_start = {start_node}
+    visited_from_end = {end_node}
+
+    while to_visit:
+        node = to_visit.popleft()
+        if node in visited_from_start and node in visited_from_end:
+            return True
+
+        for adjacent in graph[node]:
+            if node in visited_from_start and adjacent not in visited_from_start:
+                visited_from_start.add(adjacent)
+                to_visit.append(adjacent)
+            if node in visited_from_end and adjacent not in visited_from_end:
+                visited_from_end.add(adjacent)
+                to_visit.append(adjacent)
+    return False
 
 
 # Sorting Algorithms
@@ -217,4 +216,3 @@ and then merges them back together. """
 
 def merge_sort():
     pass
-

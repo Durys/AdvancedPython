@@ -1,3 +1,6 @@
+import copy
+
+
 def is_even(num):
     return num % 2 == 0
 
@@ -19,8 +22,8 @@ print(filtered)
 if __name__ == '__main__':
     # MUTABLE
     lists = [1, 2, 3, 4, 5]
-    dicts = {1: 2, 2: 3, 3: 4}
     sets = {1, 2, 3}
+    dicts = {1: 2, 2: 3, 3: 4}
     # IMMUTABLE
     strings = "Python"
     ints = 2
@@ -28,19 +31,27 @@ if __name__ == '__main__':
     tuples = (1, 2, 3)
 
     # LAMBDA FUNCTIONS
-    """A lambda function is an anonymous function (i.e., defined without a name)
-   that can take any number of arguments but, unlike normal functions,
-   evaluates and returns only one expression."""
+    """
+    A lambda function is an anonymous function (i.e., defined without a name)
+    that can take any number of arguments but, unlike normal functions,
+    evaluates and returns only one expression.
+    """
     print(lambda x: ints + 1)  # < function <lambda > at 0x00000250CB0A5820 >
     (lambda x, y, z: x + y + z)(3, 8, 1)  # Can have many inputs
     print((lambda x: x if (x > 10) else 10)(5))  # Can support if else statements
 
     # * UNPACKING
-    """Unpacking is returning the items of an iterable. Using two ** returns the keyword arguments e.g. values of a dict."""
+    """
+    Unpacking is returning the items of an iterable. Using two ** returns the keyword arguments 
+    e.g. values of a dict. 
+    """
     args_kwargs(1, 2, color="red")
 
     # ITERATORS, GENERATORS AND DECORATORS
-    """A decorator is a design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. """
+    """
+    A decorator is a design pattern in Python that allows a user to add new functionality 
+    to an existing object without modifying its structure.
+    """
 
     def decor(func):
         def inner():
@@ -444,3 +455,79 @@ def complete_cunningham_chain_second_kind(n):
 assert complete_cunningham_chain_second_kind(2) == [2, 3, 5]
 assert complete_cunningham_chain_second_kind(2131) == [2131, 4261, 8521, 17041]
 assert complete_cunningham_chain_second_kind(16651) == [16651, 33301, 66601, 133201, 266401, 532801, 1065601]
+
+"""
+Task 14
+Namespaces - LEGB rule.
+"""
+x = "global"
+
+
+def outer():
+    x = "enclosing"
+
+    def inner():
+        x = "local"
+        print(x)
+    inner()
+    print(x)
+
+
+print(x)
+outer()
+
+
+print(list)
+
+list = [1, 2]
+print(list)
+
+
+"""
+Task 15
+Exception handling
+"""
+
+
+def handle_exceptions(try_me):
+    try:
+        result = 10 / try_me
+    except ZeroDivisionError:
+        print("Cannot divide by zero.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+    else:
+        print("Result:", result)
+    finally:
+        print("Exception handling complete.")
+
+
+handle_exceptions(2)
+
+
+original_list = [[1, 2, 3], [4, 5, 6]]
+shallow_copied_list = copy.copy(original_list)
+original_list[0][0] = 99  # Modifying the original list
+print(shallow_copied_list)  # Changes are reflected in the shallow copy
+
+original_list = [[1, 2, 3], [4, 5, 6]]
+deep_copied_list = copy.deepcopy(original_list)
+original_list[0][0] = 99  # Modifying the original list
+print(deep_copied_list)  # Deep copy remains unchanged
+
+
+"""
+Task 16
+Context managers - file handling
+"""
+
+# Without context manager
+file = open('example.txt', 'w')
+try:
+    file.write('Hello, world!')
+finally:
+    file.close()
+
+# With context manager
+with open('example.txt', 'w') as file:
+    file.write('Hello, world!')
