@@ -14,7 +14,7 @@ def only_main():
     print("This line will be visible only when this file is the main file, and is not imported.")
 
 
-this_will_be_first = "Im gonna be shown first - after imports"
+this_will_be_first = "In the body of the main file, above the if __name__ statement. Im gonna be shown after imports"
 print(this_will_be_first)
 
 second()
@@ -22,4 +22,3 @@ second()
 
 if __name__ == "__main__":
     only_main()
-    import_me
