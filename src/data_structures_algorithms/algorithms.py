@@ -1,5 +1,18 @@
 from collections import deque
 
+
+def count_graph_vertices_edges(graph) -> tuple[int]:
+    vertices = len(graph.keys())
+    sum_of_degrees = 0
+
+    for key, value in graph.items():
+        sum_of_degrees += len(value)
+
+    edges = sum_of_degrees // 2
+
+    return vertices, edges
+
+
 # MUTABLE
 lists = [1, 2, 3, 4, 5]
 sets = {1, 2, 3}
@@ -100,18 +113,21 @@ two nodes in a graph. """
 
 
 def depth_first_search(graph, start, goal):
-    stack = [(start, [start])]
+    visited = set()
+    stack = [start]
+    path = []
     while stack:
-        (vertex, path) = stack.pop()
-        a = graph[vertex] - set(path)
-        for next in a:
-            if next == goal:
-                yield path + [next]
-            else:
-                stack.append((next, path + [next]))
+        node = stack.pop()
+        if node not in visited:
+            path.append(node)
+            visited.add(node)
+            for adjacent in graph[node]:
+                if adjacent not in visited:
+                    stack.append(adjacent)
+    return path
 
 
-# print(list(depth_first_search(graph, 'A', 'F')))  # Output: [['A', 'C', 'F'], ['A', 'B', 'E', 'F']]
+# print(list(depth_first_search(graph, 'A', 'F')))  # Output: ['A', 'B', 'E', 'F', 'C', 'D']
 
 ## Breadth-first Search - Complexity: O(V+E) where V is number of vertices and E of edges
 """Breadth-first search (BFS) is an algorithm for searching a tree or graph data structure. 
@@ -120,21 +136,20 @@ It starts at the root node and explores all the nodes at the current level befor
 
 def breadth_first_search(graph, start_node, end_node):
     visited = set()
-    queue = deque()
-    queue.append(start_node)
+    queue = deque([start_node])
+    path = []
     while queue:
         node = queue.popleft()  # Remove from the front of the queue
-        for adjacent in graph[node]:
-            if adjacent not in visited:
-                if adjacent == end_node:
-                    return True
-                else:
+        if node not in visited:
+            path.append(node)
+            visited.add(node)
+            for adjacent in graph[node]:
+                if adjacent not in visited:
                     queue.append(adjacent)
-        visited.add(node)
-    return False
+    return path
 
 
-# print(breadth_first_search(graph, 'A', 'F'))  # Output: {'A', 'B', 'C', 'D', 'E', 'F'}
+# print(breadth_first_search(graph, 'A', 'F'))  # Output: ['A', 'C', 'B', 'F', 'E', 'D']
 
 
 def bidirectional_search(graph, start_node, end_node):
