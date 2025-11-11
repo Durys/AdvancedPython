@@ -22,7 +22,7 @@ class Node:
    / \     / \
   3   8   7  22
 
-Why - the leaf node 8 is larger than the root node.
+Why - the leaf node 8 is larger than the main root node (6).
 
 A Binary SEARCH tree
       __6__
@@ -76,7 +76,9 @@ def post_order_tranversal(node):
 
 
 # TRIES
-"""A trie is a variant of an n-ary tree in which characters are stored at each node. Each path down the tree may
+"""
+A trie is a variant of an n-ary tree in which characters 
+are stored at each node. Each path down the tree may
 represent a word. The * nodes are used to indicate complete words. 
 
       __M__

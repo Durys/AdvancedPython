@@ -1,7 +1,7 @@
 from collections import deque
 
 
-def count_graph_vertices_edges(graph) -> tuple[int]:
+def count_graph_vertices_edges(graph) -> tuple[int, int]:
     vertices = len(graph.keys())
     sum_of_degrees = 0
 
@@ -33,17 +33,10 @@ graph = {'A': set(['B', 'C']),
 unsorted_list = [5, 3, 2, 4, 1]
 
 # Arrays and Linked Lists
-
 # Heaps, Stacks, Queues
-# https://ioflood.com/blog/using-deque-in-python-python-queues-and-stacks-made-easy/#:~:text=Deque%20is%20a%20Python%20function,safer%20choice%20for%20multithreaded%20programs.
-
 # Hash Tables
-## IMPORTANT
-
 # Binary Search Trees
-
 # N - ary Trees
-
 # Trie - Trees
 
 # IMPORTANT - KNOW WHAT IS INORDER, POSTORDER AND PREORDER
@@ -52,6 +45,7 @@ unsorted_list = [5, 3, 2, 4, 1]
 # DFS and BFS
 # Dijkstra or A*
 
+# TODO: IMPLEMENT IN THE COMPLEX ALGORITHMS SECTION
 # Travelling Salesman Problem.....
 # Knapsack Problem
 # N choose K Problems
@@ -61,33 +55,39 @@ unsorted_list = [5, 3, 2, 4, 1]
 # Search Algorithms
 # COMPLEXITIES:  where N is the size of the list
 
-## Constant: Θ(1)
-## Logarithmic: Θ(log N)
-## Linear: Θ(N)
-## Polynomial: Θ(N^2)
-## Exponential: Θ(2^N)
-## Factorial: Θ(N!)
-
-## Linear Search - Complexity: O(N)
-"""Linear search is a simple search algorithm that searches for an item by examining each element in a list one by 
-one until it finds the item or determines that it is not in the list. """
+# Constant: Θ(1)
+# Logarithmic: Θ(log N)
+# Linear: Θ(N)
+# Polynomial: Θ(N^2)
+# Exponential: Θ(2^N)
+# Factorial: Θ(N!)
 
 
-def linear_search(lst, item):
+def linear_search(lst: list, item: int) -> list or None:
+    """
+    Linear search is a simple search algorithm that searches
+    for an item by examining each element in a list one by one
+    until it finds the item or determines that it is not in the list.
+    Complexity: O(N)
+    """
     for i in lst:
         if i == item:
             return i, lst.index(i)
     return None
 
 
-## Binary Search - Complexity: O(log N)
-"""Binary search is an efficient search algorithm that searches for an item in a sorted list by dividing the list in 
-half at each step and comparing the item to the middle element. If the item is less than the middle element, 
-the search continues in the left half of the list; if it is greater, the search continues in the right half.
-This process is repeated until the item is found or it is determined that it is not in the list. """
+# print(linear_search(lst, 4))
 
 
-def binary_search_of_a_sorted_list(lst, item):
+def binary_search_of_a_sorted_list(lst: list, item: int) -> list or None:
+    """
+    Binary search is an efficient search algorithm that searches for an item
+    in a sorted list by dividing the list in half at each step
+    and comparing the item to the middle element. If the item is less than the middle element,
+    the search continues in the left half of the list; if it is greater,
+    the search continues in the right half.
+    Complexity: O(log N)
+    """
     lowest_index = 0
     highest_index = len(lst) - 1
 
@@ -106,13 +106,14 @@ def binary_search_of_a_sorted_list(lst, item):
 # print(binary_search_of_a_sorted_list(lst, 4))
 
 
-## Depth-first Search - Complexity: O(V+E) where V is number of vertices and E of edges
-"""Depth-first search (DFS) is an algorithm that traverses a tree or graph by exploring as far as possible along each 
-branch before backtracking. It is useful for searching a large, complex data structure or for finding a path between 
-two nodes in a graph. """
-
-
-def depth_first_search(graph, start, goal):
+def depth_first_search(graph: dict, start: int, goal: int) -> list:
+    """
+    Depth-first search (DFS) is an algorithm that traverses a tree or graph
+    by exploring as far as possible along each branch before backtracking.
+    It is useful for searching a large, complex data structure
+    or for finding a path between two nodes in a graph.
+    Complexity: O(V+E) where V is number of vertices and E of edges
+    """
     visited = set()
     stack = [start]
     path = []
@@ -129,14 +130,16 @@ def depth_first_search(graph, start, goal):
 
 # print(list(depth_first_search(graph, 'A', 'F')))  # Output: ['A', 'B', 'E', 'F', 'C', 'D']
 
-## Breadth-first Search - Complexity: O(V+E) where V is number of vertices and E of edges
-"""Breadth-first search (BFS) is an algorithm for searching a tree or graph data structure. 
-It starts at the root node and explores all the nodes at the current level before moving on to the next level."""
 
-
-def breadth_first_search(graph, start_node, end_node):
+def breadth_first_search(graph: dict, start: int, goal: int) -> list:
+    """
+    Breadth-first search (BFS) is an algorithm for searching a tree or graph data structure.
+    It starts at the root node and explores all the nodes at the current level
+    before moving on to the next level.
+    Complexity: O(V+E) where V is number of vertices and E of edges
+    """
     visited = set()
-    queue = deque([start_node])
+    queue = deque([start])
     path = []
     while queue:
         node = queue.popleft()  # Remove from the front of the queue
@@ -173,7 +176,7 @@ def bidirectional_search(graph, start_node, end_node):
 
 
 # Sorting Algorithms
-## Bubble Sort
+# Bubble Sort
 """Bubble sort is a simple sorting algorithm that repeatedly compares adjacent elements and swaps them if they are in 
 the wrong order. It continues this process until the list is sorted. """
 
@@ -188,7 +191,7 @@ def bubble_sort(lst):
 
 # print(bubble_sort(unsorted_list)) # Output: [1, 2, 3, 4, 5]
 
-## Insertion Sort
+# Insertion Sort
 """Insertion sort is a simple sorting algorithm that builds the final sorted list one element at a time by comparing 
 each element to the ones that come before it and inserting it into the correct position. """
 
@@ -206,7 +209,7 @@ def insertion_sort(lst):
 
 # print(insertion_sort(unsorted_list))  # Output: [1, 2, 3, 4, 5]
 
-## Selection Sort
+# Selection Sort
 """Selection sort is a simple sorting algorithm that repeatedly selects the minimum element from the unsorted part of 
 the list and appends it to the sorted part. """
 
@@ -224,7 +227,7 @@ def selection_sort(lst):
 # print(selection_sort(unsorted_list))  # Output: [1, 2, 3, 4, 5]
 
 
-## Merge Sort
+# Merge Sort
 """Merge sort is a divide-and-conquer sorting algorithm that recursively splits the list in half, sorts the halves, 
 and then merges them back together. """
 
