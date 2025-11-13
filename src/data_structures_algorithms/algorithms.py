@@ -183,6 +183,7 @@ def bubble_sort(lst):
     Bubble sort is a simple sorting algorithm that repeatedly
     compares adjacent elements and swaps them if they are in the wrong order.
     It continues this process until the list is sorted.
+    Complexity: O(n^2)
     """
     for first in range(len(lst) - 1):
         for second in range(len(lst) - 1 - first):
@@ -200,6 +201,7 @@ def insertion_sort(lst):
     the final sorted list one element at a time by comparing
     each element to the ones that come before it
     and inserting it into the correct position.
+    Complexity: O(n^2)
     """
     for i in range(1, len(lst)):
         current_value = lst[i]
@@ -219,6 +221,7 @@ def selection_sort(lst):
     Selection sort is a simple sorting algorithm that repeatedly
     selects the minimum element from the unsorted part of
     the list and appends it to the sorted part.
+    Complexity: O(n^2)
     """
     for i in range(len(lst)):
         min_index = i
@@ -237,5 +240,6 @@ def merge_sort():
     Merge sort is a divide-and-conquer sorting algorithm
     that recursively splits the list in half, sorts the halves,
     and then merges them back together.
+    Complexity: O(n log(n))
     """
     pass
