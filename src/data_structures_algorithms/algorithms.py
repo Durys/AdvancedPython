@@ -176,12 +176,14 @@ def bidirectional_search(graph, start_node, end_node):
 
 
 # Sorting Algorithms
-# Bubble Sort
-"""Bubble sort is a simple sorting algorithm that repeatedly compares adjacent elements and swaps them if they are in 
-the wrong order. It continues this process until the list is sorted. """
 
 
 def bubble_sort(lst):
+    """
+    Bubble sort is a simple sorting algorithm that repeatedly
+    compares adjacent elements and swaps them if they are in the wrong order.
+    It continues this process until the list is sorted.
+    """
     for first in range(len(lst) - 1):
         for second in range(len(lst) - 1 - first):
             if lst[second] > lst[second + 1]:
@@ -191,12 +193,14 @@ def bubble_sort(lst):
 
 # print(bubble_sort(unsorted_list)) # Output: [1, 2, 3, 4, 5]
 
-# Insertion Sort
-"""Insertion sort is a simple sorting algorithm that builds the final sorted list one element at a time by comparing 
-each element to the ones that come before it and inserting it into the correct position. """
-
 
 def insertion_sort(lst):
+    """
+    Insertion sort is a simple sorting algorithm that builds
+    the final sorted list one element at a time by comparing
+    each element to the ones that come before it
+    and inserting it into the correct position.
+    """
     for i in range(1, len(lst)):
         current_value = lst[i]
         j = i - 1
@@ -209,12 +213,13 @@ def insertion_sort(lst):
 
 # print(insertion_sort(unsorted_list))  # Output: [1, 2, 3, 4, 5]
 
-# Selection Sort
-"""Selection sort is a simple sorting algorithm that repeatedly selects the minimum element from the unsorted part of 
-the list and appends it to the sorted part. """
-
 
 def selection_sort(lst):
+    """
+    Selection sort is a simple sorting algorithm that repeatedly
+    selects the minimum element from the unsorted part of
+    the list and appends it to the sorted part.
+    """
     for i in range(len(lst)):
         min_index = i
         for j in range(i + 1, len(lst)):
@@ -227,10 +232,10 @@ def selection_sort(lst):
 # print(selection_sort(unsorted_list))  # Output: [1, 2, 3, 4, 5]
 
 
-# Merge Sort
-"""Merge sort is a divide-and-conquer sorting algorithm that recursively splits the list in half, sorts the halves, 
-and then merges them back together. """
-
-
 def merge_sort():
+    """
+    Merge sort is a divide-and-conquer sorting algorithm
+    that recursively splits the list in half, sorts the halves,
+    and then merges them back together.
+    """
     pass

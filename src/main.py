@@ -37,7 +37,7 @@ if __name__ == '__main__':
     evaluates and returns only one expression.
     """
     print(lambda x: ints + 1)  # < function <lambda > at 0x00000250CB0A5820 >
-    (lambda x, y, z: x + y + z)(3, 8, 1)  # Can have many inputs
+    print((lambda x, y, z: x + y + z)(3, 8, 1))  # Can have many inputs
     print((lambda x: x if (x > 10) else 10)(5))  # Can support if else statements
 
     # * UNPACKING
@@ -77,14 +77,14 @@ if __name__ == '__main__':
 
 
     # GENERATOR
-    def _gen():
-        start = 0
-        while start <= 0:
-            start -= 2
+    def _fib_gen():
+        start = [0, 1]
+        while len(start) >= 0:
+            start.append(start[-1] + start[-2])
             yield start
 
 
-    gen = _gen()
+    gen = _fib_gen()
     print(next(gen))
     print(next(gen))
     print(next(gen))
@@ -137,7 +137,7 @@ if __name__ == '__main__':
 
 def funkcja(x):
     try:
-        if type(x) is not int():
+        if type(x) is int():
             y = x + 2
             return x, y
 
