@@ -286,7 +286,7 @@ Add type annotations to the function.
 """
 
 
-def bar(lst: list) -> int or None:
+def bar(lst: list) -> int | None:
     for i, v in enumerate(lst):
         int: i
         int: v

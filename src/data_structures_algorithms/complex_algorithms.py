@@ -1,6 +1,13 @@
 import heapq
 
 
+class TreeNode:
+    def __init__(self, x):
+       self.val = x
+       self.left = None
+       self.right = None
+
+
 def dijkstra(graph: dict, start_node: int) -> dict:
     """
     Finds the shortest path from a start node
@@ -59,6 +66,18 @@ def count_islands(grid: list[list[int]]) -> int:
     return islands
 
 
+def lowest_common_ancestor(root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    if root == None or root == p or root == q:
+        return root
+    left = lowest_common_ancestor(root.left, p, q)
+    right = lowest_common_ancestor(root.right, p, q)
+    if left != None and right != None:
+        return root
+    if left != None:
+        return left
+    return right
+
+
 if __name__ == '__main__':
     graph = {
         'A': {'B': 1, 'C': 4},
@@ -84,3 +103,5 @@ if __name__ == '__main__':
 
     print(f"There are {count_islands(copied_map)} islands in the map {map}")
 
+    root = [3, 5, 1, 6, 2, 0, 8, None, None, 7, 4]
+    print(lowest_common_ancestor(root, 5, 4))
