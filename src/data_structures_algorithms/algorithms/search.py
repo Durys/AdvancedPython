@@ -117,7 +117,7 @@ def bidirectional_search(graph: dict, start_node: int|str, end_node: int|str) ->
 
     while start_frontier and end_frontier:
         # Check for intersection
-        if start_frontier & end_frontier:
+        if start_frontier and end_frontier:
             return True
 
         # Expand from start
@@ -130,7 +130,7 @@ def bidirectional_search(graph: dict, start_node: int|str, end_node: int|str) ->
         start_frontier = next_start_frontier
 
         # Check for intersection again
-        if start_frontier & end_frontier:
+        if start_frontier and end_frontier:
             return True
 
         # Expand from end
