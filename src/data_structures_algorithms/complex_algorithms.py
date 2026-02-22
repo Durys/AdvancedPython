@@ -1,5 +1,11 @@
+"""Complex Algorithms."""
 import heapq
 
+# Dijkstra or A*
+# Travelling Salesman Problem.....
+# Knapsack Problem
+# N choose K Problems
+# Recursion
 
 class TreeNode:
     def __init__(self, x):
@@ -66,14 +72,14 @@ def count_islands(grid: list[list[int]]) -> int:
     return islands
 
 
-def lowest_common_ancestor(root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-    if root == None or root == p or root == q:
+def lowest_common_ancestor(root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> TreeNode | None:
+    if root is None or root == p or root == q:
         return root
     left = lowest_common_ancestor(root.left, p, q)
     right = lowest_common_ancestor(root.right, p, q)
-    if left != None and right != None:
+    if left is not None and right is not None:
         return root
-    if left != None:
+    if left is not None:
         return left
     return right
 

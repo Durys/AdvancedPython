@@ -1,5 +1,7 @@
-"""All trees are graphs. Binary trees are a specific type of trees where the nodes on the right are always larger
-than the nodes on the left."""
+"""
+All trees are graphs. Binary trees are a specific type of trees where
+the nodes on the right are always larger than the nodes on the left.
+"""
 
 root = "The upper node of the tree, that has no parents (nodes above)"
 leaf = "Any node of the tree which has no children"
@@ -72,25 +74,8 @@ def post_order_tranversal(node):
         post_order_tranversal(node.right)
         print(node)
 
+
 # In a post-order traversal, the root is always the last node visited.
-
-
-# TRIES
-"""
-A trie is a variant of an n-ary tree in which characters 
-are stored at each node. Each path down the tree may
-represent a word. The * nodes are used to indicate complete words. 
-
-      __M__
-     /     \
-    A       L
-   / \       \
-  N   P       I
- /    |        \
-Y     *         E 
-|               |
-*               *
-"""
 
 
 if __name__ == "__main__":

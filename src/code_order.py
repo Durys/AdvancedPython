@@ -2,8 +2,10 @@
 and the importance of the if __name__ == "__main__" statement"""
 import import_me
 
-"""Since python is a top to bottom language, the order of execution, and thus the order in which we see the results 
-will be as follows: imported files, everything above the if __name__ == __main__" and finally everything below """
+"""
+Since python is a top to bottom language, the order of execution, and thus the order in which we see the results 
+will be as follows: imported files, everything above the if __name__ == __main__" and finally everything below 
+"""
 
 
 def second():
