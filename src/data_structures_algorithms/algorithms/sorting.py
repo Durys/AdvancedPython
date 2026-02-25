@@ -2,7 +2,7 @@
 unsorted_list = [5, 3, 2, 4, 1]
 
 
-def bubble_sort(lst):
+def bubble_sort(lst: list) -> list:
     """
     Bubble sort is a simple sorting algorithm that repeatedly
     compares adjacent elements and swaps them if they are in the wrong order.
@@ -19,7 +19,7 @@ def bubble_sort(lst):
 # print(bubble_sort(unsorted_list)) # Output: [1, 2, 3, 4, 5]
 
 
-def insertion_sort(lst):
+def insertion_sort(lst: list) -> list:
     """
     Insertion sort is a simple sorting algorithm that builds
     the final sorted list one element at a time by comparing
@@ -40,7 +40,7 @@ def insertion_sort(lst):
 # print(insertion_sort(unsorted_list))  # Output: [1, 2, 3, 4, 5]
 
 
-def selection_sort(lst):
+def selection_sort(lst: list) -> list:
     """
     Selection sort is a simple sorting algorithm that repeatedly
     selects the minimum element from the unsorted part of
@@ -59,7 +59,7 @@ def selection_sort(lst):
 # print(selection_sort(unsorted_list))  # Output: [1, 2, 3, 4, 5]
 
 
-def merge_sort():
+def merge_sort(lst: list) -> list:
     """
     Merge sort is a divide-and-conquer sorting algorithm
     that recursively splits the list in half, sorts the halves,
@@ -67,3 +67,28 @@ def merge_sort():
     Complexity: O(n log(n))
     """
     pass
+
+
+def quick_sort(lst: list) -> list:
+    """
+    Merge sort is a divide-and-conquer sorting algorithm
+    that selects a “pivot” element and partitions the surrounding list,
+    such that all the elements less than the pivot come
+    before it and all the elements greater than the pivot come after it.
+    Uses recursion to sort the right and left lists.
+    Complexity: O(n log(n))
+    """
+    if len(lst) <= 1:
+        return lst
+
+    pivot = lst.pop()
+    left = [x for x in lst if x < pivot]
+    right = [x for x in lst if x >= pivot]
+
+    left = quick_sort(left)
+    right = quick_sort(right)
+
+    return left + [pivot] + right
+
+
+# print(quick_sort(unsorted_list))  # Output: [1, 2, 3, 4, 5]
