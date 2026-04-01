@@ -53,7 +53,7 @@ def binary_search_of_a_sorted_list(lst: list, item: int) -> list | None:
     return None
 
 
-def depth_first_search(graph: dict, start: int|str, goal: int|str) -> list:
+def depth_first_search(graph: dict, start: int|str, goal=None) -> list:
     """
     Depth-first search (DFS) is an algorithm that traverses a tree or graph
     by exploring as far as possible along each branch before backtracking.
@@ -75,7 +75,7 @@ def depth_first_search(graph: dict, start: int|str, goal: int|str) -> list:
     return path
 
 
-def breadth_first_search(graph: dict, start: int|str, goal: int|str) -> list:
+def breadth_first_search(graph: dict, start: int|str, goal=None) -> list:
     """
     Breadth-first search (BFS) is an algorithm for searching a tree or graph data structure.
     It starts at the root node and explores all the nodes at the current level
