@@ -137,7 +137,7 @@ if __name__ == '__main__':
 
 def funkcja(x):
     try:
-        if type(x) is int():
+        if isinstance(x, int):
             y = x + 2
             return x, y
 
